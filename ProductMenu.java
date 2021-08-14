@@ -15,7 +15,7 @@ public class ProductMenu {
         System.out.println("|---------------------------------------|");
         System.out.println("|           1. Add Product              |");
         System.out.println("|           2. Show All Products        |");
-        System.out.println("|           3. Remove Products          |");
+        System.out.println("|           3. Remove Product           |");
         System.out.println("|           0. Exit                     |");
         System.out.println("=========================================");
         int choice = readInt(0, 3);
@@ -83,7 +83,7 @@ public class ProductMenu {
         float price = readFloat(0, Float.MAX_VALUE);
         Products p = new Products(id, name, price);
         this.pm.addProduct(p);
-        System.out.println("Product Added!");
+        System.out.println("***Product Added!***");
     }
 
     private void showAll() {
@@ -97,15 +97,15 @@ public class ProductMenu {
     }
 
     private void removeProduct() {
-        System.out.println("Enter ID of the product");
+        System.out.println("Enter ID of the product:");
         int id = readInt(0, Integer.MAX_VALUE);
         boolean result = this.pm.removeProduct(id);
         if (result) {
             System.out.println();
-            System.out.println("Product REMOVED!");
+            System.out.println("***Product REMOVED!***");
         } else {
             System.out.println();
-            System.out.println("Product Not Found!");
+            System.out.println("***Product Not Found!***");
         }
     }
 }
