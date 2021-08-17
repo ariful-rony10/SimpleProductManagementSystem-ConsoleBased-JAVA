@@ -1,15 +1,22 @@
 import java.util.Scanner;
 
+
 public class ProductMenu {
+    // Importing Scanner
     private Scanner sc;
+    // Creating object of Product Manager
     private ProductManager pm;
 
+    // !Constructor
     public ProductMenu() {
         this.sc = new Scanner(System.in);
         this.pm = new ProductManager();
     }
-
+    
+    // *Menu Method
     private int menu() {
+        System.out.println();
+        System.out.println();
         System.out.println("|---------------------------------------|");
         System.out.println("|+++++++++++++ PRODUCT MENU ++++++++++++|");
         System.out.println("|---------------------------------------|");
@@ -18,10 +25,13 @@ public class ProductMenu {
         System.out.println("|           3. Remove Product           |");
         System.out.println("|           0. Exit                     |");
         System.out.println("=========================================");
+        System.out.println();
+        System.out.println();
         int choice = readInt(0, 3);
         return choice;
     }
-
+    // *Start Method
+    
     public void start() {
         while (true) {
             int choice = menu();
@@ -44,6 +54,7 @@ public class ProductMenu {
         }
     }
 
+    // Input read Method
     private int readInt(int min, int max) {
         int choice;
         while (true) {
@@ -59,6 +70,7 @@ public class ProductMenu {
         return choice;
     }
 
+    //  Input for price
     private float readFloat(int min, float max) {
         float price;
         while (true) {
@@ -74,6 +86,7 @@ public class ProductMenu {
         return price;
     }
 
+    // Add product method
     private void addProduct() {
         System.out.println("Enter product ID:");
         int id = readInt(0, Integer.MAX_VALUE);
@@ -86,7 +99,10 @@ public class ProductMenu {
         System.out.println("***Product Added!***");
     }
 
+    // Show All method
     private void showAll() {
+        System.out.println();
+        System.out.println();
         System.out.println("|------------  ALL Product ------------|");
         System.out.println("|\t   ID \t Name \t Price \t|");
         for (int i = 0; i < this.pm.count(); i++) {
@@ -94,18 +110,27 @@ public class ProductMenu {
             System.out.println("|\t" + p.getId() + "\t" + p.getName() + "\t" + p.getPrice() + "\t|");
         }
         System.out.println("|---------------------------------------|");
+        System.out.println();
+        System.out.println();
     }
 
+    // Remove product Method
     private void removeProduct() {
         System.out.println("Enter ID of the product:");
         int id = readInt(0, Integer.MAX_VALUE);
         boolean result = this.pm.removeProduct(id);
         if (result) {
             System.out.println();
+            System.out.println();
             System.out.println("***Product REMOVED!***");
+            System.out.println();
+            System.out.println();
         } else {
             System.out.println();
+            System.out.println();
             System.out.println("***Product Not Found!***");
+            System.out.println();
+            System.out.println();
         }
     }
 }

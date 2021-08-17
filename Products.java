@@ -1,4 +1,5 @@
 public class Products {
+    // Creating
     private int id;
     private String name;
     private float price;
